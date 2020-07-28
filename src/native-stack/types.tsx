@@ -28,35 +28,35 @@ export type NativeStackNavigationEventMap = {
 export type NativeStackNavigationProp<
   ParamList extends ParamListBase,
   RouteName extends keyof ParamList = string
-  > = NavigationProp<
-    ParamList,
-    RouteName,
-    StackNavigationState,
-    NativeStackNavigationOptions,
-    NativeStackNavigationEventMap
-  > & {
-    /**
-     * Push a new screen onto the stack.
-     *
-     * @param name Name of the route for the tab.
-     * @param [params] Params object for the route.
-     */
-    push<RouteName extends keyof ParamList>(
-      ...args: ParamList[RouteName] extends undefined | any
-        ? [RouteName] | [RouteName, ParamList[RouteName]]
-        : [RouteName, ParamList[RouteName]]
-    ): void;
+> = NavigationProp<
+  ParamList,
+  RouteName,
+  StackNavigationState,
+  NativeStackNavigationOptions,
+  NativeStackNavigationEventMap
+> & {
+  /**
+   * Push a new screen onto the stack.
+   *
+   * @param name Name of the route for the tab.
+   * @param [params] Params object for the route.
+   */
+  push<RouteName extends keyof ParamList>(
+    ...args: ParamList[RouteName] extends undefined | any
+      ? [RouteName] | [RouteName, ParamList[RouteName]]
+      : [RouteName, ParamList[RouteName]]
+  ): void;
 
-    /**
-     * Pop a screen from the stack.
-     */
-    pop(count?: number): void;
+  /**
+   * Pop a screen from the stack.
+   */
+  pop(count?: number): void;
 
-    /**
-     * Pop to the first route in the stack, dismissing all other screens.
-     */
-    popToTop(): void;
-  };
+  /**
+   * Pop to the first route in the stack, dismissing all other screens.
+   */
+  popToTop(): void;
+};
 
 export type NativeStackNavigationHelpers = NavigationHelpers<
   ParamListBase,
@@ -117,6 +117,10 @@ export type NativeStackNavigationOptions = {
    * @platform ios
    */
   headerLargeTitle?: boolean;
+  /**
+   * Whether the stack should be in rtl or ltr form.
+   */
+  direction?: 'rtl' | 'ltr';
   /**
    * Function which returns a React Element to display on the right side of the header.
    */

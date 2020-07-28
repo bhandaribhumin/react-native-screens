@@ -78,6 +78,7 @@ class StackView extends React.Component {
       translucent,
       hideShadow,
       headerTopInsetEnabled = true,
+      direction,
     } = options;
 
     const scene = {
@@ -107,6 +108,7 @@ class StackView extends React.Component {
       largeTitleColor: headerLargeTitleStyle && headerLargeTitleStyle.color,
       hideShadow,
       headerTopInsetEnabled,
+      direction,
     };
 
     const hasHeader = headerMode !== 'none' && options.header !== null;
@@ -231,8 +233,8 @@ class StackView extends React.Component {
           Platform.OS === 'android'
             ? false
             : options.gestureEnabled === undefined
-              ? true
-              : options.gestureEnabled
+            ? true
+            : options.gestureEnabled
         }
         onAppear={() => this._onAppear(route, descriptor)}
         onDismissed={() => this._removeScene(route)}>

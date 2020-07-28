@@ -39,6 +39,7 @@ export default function HeaderConfig(props: Props) {
     headerBackTitleStyle = {},
     headerShown,
     backButtonInCustomView,
+    direction,
   } = props;
 
   return (
@@ -49,6 +50,7 @@ export default function HeaderConfig(props: Props) {
       hideShadow={headerHideShadow}
       largeTitleHideShadow={headerLargeTitleHideShadow}
       hideBackButton={headerHideBackButton}
+      direction={direction}
       title={
         headerTitle !== undefined
           ? headerTitle
